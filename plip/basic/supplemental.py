@@ -378,7 +378,7 @@ def int32_to_negative(int32):
 def read_pdb(pdbfname, as_string=False):
     """Reads a given PDB file and returns a Pybel Molecule."""
     pybel.ob.obErrorLog.StopLogging()  # Suppress all OpenBabel warnings
-    if os.name != 'nt':  # Resource module not available for Windows
+    if os.name != 'nt' and platform.system() != 'Darwin':  # Resource module not available for Windows
         maxsize = resource.getrlimit(resource.RLIMIT_STACK)[-1]
         resource.setrlimit(resource.RLIMIT_STACK, (min(2 ** 28, maxsize), maxsize))
     sys.setrecursionlimit(10 ** 5)  # increase Python recursion limit
