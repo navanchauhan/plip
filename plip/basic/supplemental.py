@@ -18,7 +18,7 @@ from plip.basic import config, logger
 logger = logger.get_logger()
 
 # Windows and MacOS
-if os.name != 'nt' and platform.system() != 'Darwin':  # Resource module not available for Windows
+if os.name != 'nt':  # Resource module not available for Windows
     import resource
 
 # Settings
